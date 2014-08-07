@@ -85,6 +85,12 @@ module Parse
       request(uri, :delete)
     end
 
+    def push(data, opts = {} )  
+      p = Parse::Push.new(data, client: self)
+      p.where = opts[:where] if opts[:where]
+      p.save
+    end
+
   end
 
 
